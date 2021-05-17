@@ -1,5 +1,8 @@
 <% provide(:title, @user.name) %>
-<div id="service" class="mt-2">
+<div class="container">
+        <h3>Edit Profile</h3>
+</div>
+<div id="service">
     <div class="container">
         <div class="row">
             <div class="col-md-4 centered">
@@ -7,7 +10,8 @@
             </div>
 
             <div class="col-md-8">
-            <h4 class="centered"><%= @user.name %></h4>
+            <h4 class="centered">Your Profile</h4>
+            <%= render 'form' %>
             </div>
         </div>
     </div>

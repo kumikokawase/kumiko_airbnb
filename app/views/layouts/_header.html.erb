@@ -19,7 +19,8 @@
           <li class="dropdown-item">List Your Space</li>
           <li class="dropdown-item">Your Reservations</li>
           <li class="dropdown-item">Your Trips</li>
-          <li class="dropdown-item"><%= link_to "Edit Profie", current_user %></li>
+          <li class="dropdown-item"><%= link_to "Edit Profie", edit_user_path(current_user) %></li>
+          <li class="dropdown-item"><%= link_to "View My Profie", current_user %></li>
           <li class="dropdown-item"><%= link_to "Sign out", logout_path, method: :delete %></li>
       </ul>
   </div>
