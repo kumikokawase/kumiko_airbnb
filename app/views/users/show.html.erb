@@ -1,0 +1,18 @@
+<% provide(:title, @user.name) %>
+<div class="container">
+        <h3>Edit Profile</h3>
+</div>
+<div id="service">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 centered">
+            <i class="fa"><%= gravatar_for @user, size: 100 %></i>
+            </div>
+
+            <div class="col-md-8">
+            <h4 class="centered">Your Profile</h4>
+            <%= render 'form' %>
+            </div>
+        </div>
+    </div>
+</div>

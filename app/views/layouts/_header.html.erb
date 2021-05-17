@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light pl-5 pr-5">
   <a class="navbar-brand" href="#">
-      <img src="assets/logo.png" alt="" width="100" height="">
+      <img src="/assets/logo.png" width="100">
   </a>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <form class="form-inline my-2 my-lg-0">
@@ -8,13 +8,29 @@
     </form>
   </div>
     <button class="btn btn btn-outline-success" style="height: 39.5px; margin-top: 4px; font-size:14px; margin-right: 10px;" type="button">Become a Host</button>
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" style="font-size:18px">Login</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" style="font-size:18px">Signup</a>
-      </li>
-    </ul>
-  
+    
+  <% if logged_in? %>
+  <div class="navbar-nav mr-auto nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= gravatar_for current_user, size: 30 %> <%= current_user.name %>
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="right:0" >
+          <li class="dropdown-item"> Manage Listing</li>
+          <li class="dropdown-item">List Your Space</li>
+          <li class="dropdown-item">Your Reservations</li>
+          <li class="dropdown-item">Your Trips</li>
+          <li class="dropdown-item"><%= link_to "Edit Profie", current_user %></li>
+          <li class="dropdown-item"><%= link_to "Sign out", logout_path, method: :delete %></li>
+      </ul>
+  </div>
+      <% else %>
+      <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <%= link_to "Login", login_path, class: "nav-link", style:"font-size:18px" %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "Signup", signup_path, class: "nav-link", style:"font-size:18px" %>
+          </li>
+      </ul>
+      <% end %>
 </nav>
