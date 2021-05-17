@@ -35,7 +35,7 @@ class UsersController < ApplicationController
       flash[:success] = "Saved successfully!"
       redirect_to @user
     else
-      dlash[:danger] = "Invalid content. Try again."
+      flash[:danger] = "Invalid content. Try again."
       render 'edit'
     end
   end  

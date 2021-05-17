@@ -1,16 +1,15 @@
 <% provide(:title, @user.name) %>
-<div class="container">
-        <h3>Edit Profile</h3>
-</div>
-<div id="service">
+<div id="service" class="mt-2">
     <div class="container">
         <div class="row">
             <div class="col-md-4 centered">
             <i class="fa"><%= gravatar_for @user, size: 100 %></i>
+            <br>
+            <button class="btn btn btn-success"><%= link_to "View My Profie", current_user %></button>
             </div>
 
             <div class="col-md-8">
-            <h4 class="centered">Your Profile</h4>
+            <h4 class="centered">Edit Profile</h4>
             <%= render 'form' %>
             </div>
         </div>
