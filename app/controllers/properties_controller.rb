@@ -8,7 +8,7 @@ class PropertiesController < ApplicationController
   def create
     @properties = current_user.properties.build(property_params)
     if @properties.save
-      redirect_to root_url
+      redirect_to @properties
       flash[:success] = "Successfully saved!"
     else
       redirect_to root_url
@@ -16,7 +16,16 @@ class PropertiesController < ApplicationController
     end
   end
 
-  def edit
+  def update 
+    @properties = Property.find(params[:id])    
+    begin
+      if @properties.update(property_params)
+        flash[:notice] = "Saved..."
+      else
+        flash[:alert] = "Something went wrong..."
+      end
+      redirect_to request.referrer
+    end
   end
 
   def show
