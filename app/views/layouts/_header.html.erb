@@ -7,7 +7,8 @@
       <input class="form-control mr-sm-2" style="width: 217px; height: 39.5px; margin-bottom: 0px;" type="search" placeholder="Anywhere" aria-label="Search">
     </form>
   </div>
-    <button class="btn btn btn-outline-success" style="height: 39.5px; margin-top: 4px; font-size:14px; margin-right: 10px;" type="button">Become a Host</button>
+    <button class="btn btn btn-outline-success" style="height: 39.5px; margin-top: 4px; font-size:14px; margin-right: 10px;" type="button">
+    <%= link_to "Become a Host", properties_new_path %></button>
     
   <% if logged_in? %>
   <div class="navbar-nav mr-auto nav-item dropdown">
