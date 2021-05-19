@@ -28,8 +28,12 @@ class PropertiesController < ApplicationController
     end
   end
 
-  def show
+  def listing
     @properties = Property.find(params[:id])
+  end
+
+  def pricing
+    @properties = Property.find(params[:id]) 
   end
 
   def index
@@ -37,6 +41,6 @@ class PropertiesController < ApplicationController
 
   private
   def property_params
-    params.require(:property).permit(:home_type, :room_type, :guest_count, :bedroom_count, :bathroom_count)
+    params.require(:property).permit(:home_type, :room_type, :guest_count, :bedroom_count, :bathroom_count, :price)
   end
 end

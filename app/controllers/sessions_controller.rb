@@ -5,9 +5,9 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
-        flash[:success] = "Successfully logged in!"
         log_in user
         redirect_to root_url
+        flash[:success] = "Successfully logged in!"
     else
         render 'new'
         flash.now[:danger] = "Invalid content. Try again."  
@@ -15,8 +15,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    log_out
-        
+    log_out        
     redirect_to root_url
+    flash[:success] = "Logout!"
   end
 end
