@@ -2,11 +2,17 @@ Rails.application.routes.draw do
 
   get 'properties/new'
   get 'properties/edit'
-  get '/rooms', to: 'properties#new', as: :properties_new_path
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :properties, only: [:new, :create, :destroy, :show, :update]
+  resources :properties, only: [:new, :create, :destroy, :update]
+
+  resources :properties do 
+    member do
+      get 'listing'
+      get 'pricing'
+    end
+  end
 
   root 'static_pages#home'
   

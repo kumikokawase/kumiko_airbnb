@@ -16,7 +16,7 @@
           <%= gravatar_for current_user, size: 30 %> <%= current_user.name %>
       </a>
       <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="right:0" >
-          <li class="dropdown-item"> Manage Listing</li>
+          <li class="dropdown-item"><%= link_to "Manage Listing", properties_path, class:"active" %></li>
           <li class="dropdown-item">List Your Space</li>
           <li class="dropdown-item">Your Reservations</li>
           <li class="dropdown-item">Your Trips</li>

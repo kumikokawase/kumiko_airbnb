@@ -16,9 +16,9 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save
-      flash[:success] = "Saved successfully!"   
-      redirect_to login_url
+    if @user.save  
+      redirect_to login_path
+      flash[:success] = "Saved successfully!" 
     else
       flash[:danger] = "Invalid content. Try again."
       render 'new'
