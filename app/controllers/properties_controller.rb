@@ -8,8 +8,8 @@ class PropertiesController < ApplicationController
   def create
     @properties = current_user.properties.build(property_params)
     if @properties.save
-      redirect_to @properties
       flash[:success] = "Successfully saved!"
+      redirect_to
     else
       redirect_to root_url
       flash[:danger] = "Invalid"
@@ -54,6 +54,6 @@ class PropertiesController < ApplicationController
 
   private
   def property_params
-    params.require(:property).permit(:home_type, :room_type, :guest_count, :bedroom_count, :bathroom_count, :price, :title, :description, :location, :has_tv, :has_heater, :has_aircon, :has_kitchen, :has_will )
+    params.require(:property).permit(:home_type, :room_type, :guest_count, :bedroom_count, :bathroom_count, :price, :title, :description, :location, :has_tv, :has_heater, :has_aircon, :has_kitchen, :has_will, :price, :title, :description, :location, :has_tv, :has_heater, :has_aircon, :has_kitchen, :has_will )
   end
 end
