@@ -1,0 +1,35 @@
+<% provide(:title, @properties.id) %>
+<div class="container">
+    <div class = "row"> 
+        <div class ="col-3 mt-4">
+            <%= render 'leftbar' %>
+        </div>
+
+        <div class = "col-9">
+            <div class = "card mt-4">
+                <div class = "card-header">
+                    Location 
+                </div>
+                <div class="card-body">
+                    <div class = "container ">
+                        <div class = "row">
+                            <div class="col-6 mt-3">
+                                <%= form_for @properties do |f| %>
+                                <form>
+                                <div class="form-group">
+                                    <%= f.label :"Address" %>
+                                    <%= f.text_field :location, placeholder: "What is your address?", required: true, style: "width: 400px; height: 56px;" %> 
+                                </div>
+                                <div class="form-send">
+                                    <%= f.submit "Save", class: "btn btn-info" %>
+                                </div>
+                                <% end %>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

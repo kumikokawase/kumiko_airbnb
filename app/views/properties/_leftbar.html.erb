@@ -3,15 +3,35 @@
   <%= link_to "Listing", listing_property_path, class:"text-success" %>
   <span class="float-right badge badge-success">done</span>
   </li>
+
   <li class="list-group-item">
   <%= link_to "Pricing", pricing_property_path, class:"text-success" %>
   <% if @properties.price %>
     <span class="float-right badge badge-success">done</span>
-  <% end%>
+  <% end %>
   </li>
-  <li class="list-group-item">Description</li>
+
+  <li class="list-group-item">
+  <%= link_to "Description", description_property_path, class:"text-success" %>
+  <% if @properties.description %>
+    <span class="float-right badge badge-success">done</span>
+  <% end %>
+  </li>
+
   <li class="list-group-item">Photos</li>
-  <li class="list-group-item">Amenities</li>
-  <li class="list-group-item">Location</li>
+
+  <li class="list-group-item">
+  <%= link_to "Amenities", amenities_property_path, class:"text-success" %>
+  <% if @amenities %>
+    <span class="float-right badge badge-success">done</span>
+  <% end %>
+  </li>
+
+  <li class="list-group-item">
+  <%= link_to "Location", location_property_path, class:"text-success" %>
+  <% if @properties.location %>
+    <span class="float-right badge badge-success">done</span>
+  <% end %>
+  </li>
   <button>Publish</button>
 </ul>

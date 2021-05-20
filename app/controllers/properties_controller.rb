@@ -36,11 +36,24 @@ class PropertiesController < ApplicationController
     @properties = Property.find(params[:id]) 
   end
 
+  def description
+    @properties = Property.find(params[:id]) 
+  end
+
+  def amenities
+    @properties = Property.find(params[:id]) 
+    @amenities = @properties
+  end
+
+  def location
+    @properties = Property.find(params[:id]) 
+  end
+
   def index
   end
 
   private
   def property_params
-    params.require(:property).permit(:home_type, :room_type, :guest_count, :bedroom_count, :bathroom_count, :price)
+    params.require(:property).permit(:home_type, :room_type, :guest_count, :bedroom_count, :bathroom_count, :price, :title, :description, :location, :has_tv, :has_heater, :has_aircon, :has_kitchen, :has_will )
   end
 end
