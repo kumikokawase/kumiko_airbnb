@@ -11,6 +11,9 @@ Rails.application.routes.draw do
     member do
       get 'listing'
       get 'pricing'
+      get 'description'
+      get 'amenities'
+      get 'location'
     end
   end
 
