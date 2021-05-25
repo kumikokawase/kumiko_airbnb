@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
 
+  resources :pictures
   get 'properties/new'
   get 'properties/edit'
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :properties, only: [:new, :create, :destroy, :update]
+  resources :properties
 
   resources :properties do 
     member do
@@ -14,7 +15,9 @@ Rails.application.routes.draw do
       get 'description'
       get 'amenities'
       get 'location'
+      get 'photos'
     end
+    resources :reservations, only: [:create]
   end
 
   root 'static_pages#home'

@@ -12,5 +12,7 @@ class User < ApplicationRecord
   # user password
   validates :password, length: { minimum: 5}
   has_secure_password
+
+  has_many :reservations, dependent: :destroy
           
 end
