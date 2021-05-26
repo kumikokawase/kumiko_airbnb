@@ -11,15 +11,11 @@ class ReservationsController < ApplicationController
   end
 
   def create
-    @room = Property.find(params[:property_id])
     @reservation = current_user.reservations.build(reservation_params)
-    if current_user == @room.user
-      flash[:alert] = "You can not book your own property"
-    else
       if @reservation.save || reservations.any?
         flash[:success] = "Succesfully Booked!"       
-      end 
-    end 
+      end
+    redirect_to properties_path
   end
 
   def your_reservations
