@@ -40,20 +40,52 @@ class PropertiesController < ApplicationController
     @properties = Property.find(params[:id]) 
   end
 
+  def picture
+    @properties = Property.find(params[:id]) 
+    @photos = @properties.photos
+    @photo = Photo.new
+  end
+
   def amenities
     @properties = Property.find(params[:id]) 
-    @amenities = @properties
   end
 
   def location
     @properties = Property.find(params[:id]) 
   end
 
+  def has_tv
+    @properties = Property.find(params[:id])
+  end
+
+  def has_heater
+    @properties = Property.find(params[:id])
+  end
+
+  def has_aircon
+    @properties = Property.find(params[:id])
+  end
+
+  def has_kitchen
+    @properties = Property.find(params[:id])
+  end
+
+  def has_will
+    @properties = Property.find(params[:id])
+  end
+
   def index
+  end
+
+  def show
+    @properties = Property.find(params[:id])
+    @reservation = Reservation.new
   end
 
   private
   def property_params
-    params.require(:property).permit(:home_type, :room_type, :guest_count, :bedroom_count, :bathroom_count, :price, :title, :description, :location, :has_tv, :has_heater, :has_aircon, :has_kitchen, :has_will, :price, :title, :description, :location, :has_tv, :has_heater, :has_aircon, :has_kitchen, :has_will )
+    params.require(:property).permit(:home_type, :room_type, :guest_count, :bedroom_count, :bathroom_count, 
+    :price, :title, :description, :has_tv, :has_heater, :has_aircon, :has_kitchen, :has_will, :location )
   end
+
 end

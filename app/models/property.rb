@@ -1,5 +1,6 @@
 class Property < ApplicationRecord
     belongs_to :user
+    has_many :pictures, dependent: :destroy
     default_scope -> { order('created_at DESC')}
 
     validates :home_type, presence: true
@@ -9,4 +10,6 @@ class Property < ApplicationRecord
     validates :bathroom_count, presence: true
 
     validates :user_id, presence: true
+
+    has_many :reservations, dependent: :destroy
 end

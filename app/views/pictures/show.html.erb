@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<% if @picture.main_image.attached? %>
+ <%= image_tag @picture.main_image %>
+<% end %>
+
+<% @picture.other_images.each do |other| %>
+  <%= image_tag other %>
+<% end %>
+
+<%= link_to 'Edit', edit_picture_path(@picture) %> |
+<%= link_to 'Back', pictures_path %>
