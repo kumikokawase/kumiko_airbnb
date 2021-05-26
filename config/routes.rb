@@ -17,8 +17,9 @@ Rails.application.routes.draw do
       get 'location'
       get 'photos'
     end
-    resources :reservations, only: [:create]
   end
+
+  resources :reservations, only: [:create]
 
   root 'static_pages#home'
   

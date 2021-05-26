@@ -1,38 +1,37 @@
-<%= form_for([ @property, @reservation ]) do |f| %>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="">Check in</label>
-      <input type="date" class="form-control" placeholder="30-07-2021">
-      <%= f.text_field :start_date, placeholder: "Start Date", class: "form-control" %>
+<div class="space-medium">
+    <div class="container">
+        <div class="row">
+            <%= form_for([ @reservation ]) do |f| %>
+             <div class="form-row  text-center">
+                <div class="form-group col-md-6">
+                <label for="">Check in</label>
+                <%= f.date_field :start_date, class: "form-control", placeholder: "30-07-2021" %>
 
+                </div>
+                <div class="form-group col-md-6">
+                <label for="">Check out</label>
+                <%= f.date_field :end_date, class: "form-control", placeholder: "30-09-2021" %>
+                </div>
+            </div>
+            <%= f.hidden_field :property_id, value: @properties.id %>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>Price</td>
+                        <td class="text-right">$<span><%= @properties.price %></span></td>
+                    </tr>
+                    <tr>
+                        <td>Night(s)</td>
+                        <td class="text-right">x<span id="total_nights"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="total">Total</td>
+                        <td class="text-right">$<span id="total_amount"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <%= f.submit "Book Now", id: "button_book", class: "btn btn-primary" %>    
+            <% end %>
+        </div>
     </div>
-    <div class="form-group col-md-6">
-      <label for="">Check out</label>
-      <input type="date" class="form-control" placeholder="03-08-2021">
-    </div>
-  </div>
-<table class="table">
-  <tbody>
-    <tr>
-      <td>Price</td>
-      <td>$100</td>
-    </tr>
-    <tr>
-      <td>Night(s)</td>
-      <td>
-      <select id="inputState" class="form-control">
-        <option selected>x1</option>
-        <option>x2</option>
-        <option>x3</option>
-        <option>x4</option>
-      </select></td>
-    </tr>
-    <tr>
-      <td>Total</td>
-      <td>$100</td>
-    </tr>
-
-  </tbody>
-</table>
-  <button type="submit" class="btn btn-primary">Book</button>
-<% end %>
+</div>
