@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get '/your_reservations', to:'reservations#your_reservations'
+  get '/your_trips', to:'reservations#your_trips'
+
   resources :pictures
   get 'properties/new'
   get 'properties/edit'
@@ -29,5 +32,7 @@ Rails.application.routes.draw do
 
   get '/login', to: 'sessions#new'
   delete '/logout', to: 'sessions#destroy'
-  
+
+  resources :reviews, only: [:create, :destroy]
+  get 'review', to: 'review#new'
 end

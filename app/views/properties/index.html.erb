@@ -16,7 +16,7 @@
                             <% current_user.properties.each do |f| %>
                             <tbody>
                                 <tr>
-                                    <td>room.photo </td>
+                                    <td><%= image_tag 'service-img-1.jpg', style: 'height:75px;width:110px;', class: "img-thumbnail" %></td>
                                     <td><%= f.title %> </td>
                                     <td><%= link_to 'Update', listing_property_path(f), class: "btn btn-info" %></td>
                                 </tr>
