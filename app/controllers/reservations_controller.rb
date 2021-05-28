@@ -12,7 +12,7 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = current_user.reservations.build(reservation_params)
-      if @reservation.save || reservations.any?
+      if @reservation.save
         flash[:success] = "Succesfully Booked!"       
       end
     redirect_to properties_path
