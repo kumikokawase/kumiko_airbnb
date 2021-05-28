@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light pl-5 pr-5">
-  <a class="navbar-brand" href="#">
+  <a class="navbar-brand" href="/">
       <img src="/assets/logo.png" width="100">
   </a>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -17,9 +17,9 @@
       </a>
       <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="right:0" >
           <li class="dropdown-item"><%= link_to "Manage Listing", properties_path, class:"active" %></li>
-          <li class="dropdown-item">List Your Space</li>
-          <li class="dropdown-item">Your Reservations</li>
-          <li class="dropdown-item">Your Trips</li>
+          <li class="dropdown-item"><%= link_to "Your Listings", properties_path, class:"active" %></li>
+          <li class="dropdown-item"><%= link_to "Your Reservations", your_reservations_path, class:"active" %></li>
+          <li class="dropdown-item"><%= link_to "Your Trips", your_trips_path, class:"active" %></li>
           <li class="dropdown-item"><%= link_to "Edit Profie", edit_user_path(current_user) %></li>
           <li class="dropdown-item"><%= link_to "View My Profie", current_user %></li>
           <li class="dropdown-item"><%= link_to "Sign out", logout_path, method: :delete %></li>

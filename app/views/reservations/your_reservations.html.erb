@@ -1,0 +1,71 @@
+<div class="container">
+    <div class = "row"> 
+        <div class ="col-3 mt-4">
+           <%= render 'properties/indexleftbar' %>
+        </div>
+
+        <div class = "col-9">
+            <div class = "card mt-4">
+                <div class = "card-header">
+                    Your Reservations
+                </div>    
+
+                <div class="card-body">
+                    <div class = "container ">
+                        <div class = "row">
+                            <% current_user.properties.each do |room| %>
+                            <% room.reservations.each do |reservation| %>
+                                    <div class="col-3 mt-3 text-muted">
+                                        <h6><%= reservation.start_date.strftime("%v") %></h6>
+                                    </div>
+
+                                    <div class="col-2 mt-3">
+                                            <%= link_to property_path(reservation.property) do %>
+                                                <%= image_tag 'service-img-1.jpg', style: 'width:100%;', class: "img-thumbnail" %>
+                                            <% end %>
+                                    </div>
+
+                                    <div class="col-4 mt-3">
+                                        <h6><%= room.title %></h6>
+                                        <span><%= gravatar_for reservation.user, size: 30 %> <%= link_to reservation.user.name, reservation.user %></span>
+                                    </div>
+
+                                    <div class="col-3 text-right">
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target='<%= "#trigger#{reservation.id}" %>'>
+                                            Review Guest
+                                        </button>
+                                    </div>
+                                    <div class="modal fade" id='<%= "trigger#{reservation.id}" %>' tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Review Guest</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <%= form_for @review do |f| %>
+                                                        <%= f.hidden_field :reservation_id, value: reservation.id %>
+
+                                                        <div class="form-group">
+                                                            <%= f.text_area :comment, rows: 4, class: "form-control", placeholder: "Comments" %>
+                                                        </div>  
+
+                                                        <div class="modal-footer">
+                                                            <%= f.submit "Add Review", class: "btn btn-primary" %>
+                                                        </div>
+                                                    <% end %>
+                                                </div> 
+                                            </div> 
+                                        </div>
+                                    </div>
+                                <% end %>
+                            <% end%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
