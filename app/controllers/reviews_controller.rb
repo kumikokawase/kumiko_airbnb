@@ -1,20 +1,7 @@
 class ReviewsController < ApplicationController
-  # before_action :only_loggedin_users, only: [:create, :destroy]
-
-  # def index
-  #   @host_params = Review.new
-  #   @guest_params = Review.new
-  # end
 
   def create
-    @host_params = current_user.reviews.build(review_params)
-    @guest_params = current_user.reviews.build(review_params)
-
-     if @host_params.save or @guest_params.save
-      flash[:success] = "Review created"
-    else
-      flash[:alert] = "Something went wrong... "
-    end
+    @host_params = Review.create(review_params)
     redirect_to request.referrer
   end
 
@@ -27,6 +14,6 @@ class ReviewsController < ApplicationController
 
    private
     def review_params
-      params.require(:review).permit(:comment, :star_rating, :reservation_id)
+      params.require(:review).permit(:comment, :reservation_id)
     end
 end

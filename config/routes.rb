@@ -34,5 +34,5 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   resources :reviews, only: [:create, :destroy]
-  get 'review', to: 'review#new'
+  get 'reviews', to: 'review#new'
 end
